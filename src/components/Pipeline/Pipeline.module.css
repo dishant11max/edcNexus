@@ -1,116 +1,80 @@
 .section {
-  position: relative;
+  padding: var(--spacing-3xl) 0;
   background-color: var(--color-bg-end);
-  height: 300vh; /* Make section tall to allow scroll time */
 }
 
-.stickyContainer {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .headline {
-  text-align: center;
   font-size: 2.5rem;
-  margin-bottom: var(--spacing-3xl);
   color: var(--color-text-dark);
+  margin-top: var(--spacing-sm);
 }
 
-.overflowWrapper {
-  width: 100%;
-  overflow: hidden;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
 }
 
-.stepsTrack {
-  display: flex;
-  gap: var(--spacing-2xl);
-  padding: 0 var(--spacing-md);
-  width: max-content; /* Ensure it takes full width of children */
-}
-
-.stepCard {
+.card {
   background: white;
   border-radius: 16px;
-  padding: 2rem;
-  min-width: 300px;
-  height: 250px; /* Fixed height for uniformity */
-  display: flex; /* Flex layout to position content */
-  flex-direction: column;
-  justify-content: center;
+  padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  position: relative;
   border: 1px solid transparent;
-  transition: all var(--transition-medium);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.stepCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  border-color: var(--color-border);
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); /* Slightly lifted shadow */
+  border-color: rgba(46, 125, 50, 0.2);
 }
 
-.stepNumber {
-  font-family: var(--font-mono);
-  color: var(--color-primary);
-  opacity: 0.4;
-  font-size: 0.9rem;
-  margin-bottom: var(--spacing-sm);
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
 }
 
 .iconWrapper {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   background-color: var(--color-valid-bg);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
 }
 
-.stepTitle {
+.stepNumber {
+  font-family: var(--font-mono);
+  color: var(--color-primary);
+  opacity: 0.3;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cardTitle {
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 1.25rem;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   color: var(--color-text-dark);
 }
 
-.stepDesc {
+.cardDesc {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
-}
-
-.connectorArrow {
-  position: absolute;
-  right: -40px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  color: var(--color-border);
-  font-weight: 300;
-}
-
-@media (max-width: 768px) {
-  .section {
-    height: auto; /* reset height for vertical stack on mobile */
-  }
-  .stickyContainer {
-    position: relative;
-    height: auto;
-    padding: var(--spacing-3xl) 0;
-  }
-  .stepsTrack {
-    flex-direction: column;
-    transform: none !important; /* Disable framer motion x on mobile if needed via JS check, or just let CSS layout handle it naturally if track is div */
-    gap: var(--spacing-md);
-    width: 100%;
-    align-items: center;
-  }
-  /* We might need to conditionally render the motion component or use MediaQuery in JS, but simpler is: */
+  line-height: 1.5;
 }

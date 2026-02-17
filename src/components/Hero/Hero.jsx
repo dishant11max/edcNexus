@@ -22,58 +22,76 @@ const Hero = () => {
             <linearGradient id="gradLeft" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop
                 offset="0%"
-                style={{ stopColor: "rgba(76,175,80,0.4)", stopOpacity: 1 }}
+                style={{ stopColor: "rgba(76,175,80,0.3)", stopOpacity: 1 }}
               />
               <stop
                 offset="100%"
-                style={{ stopColor: "rgba(255,255,255,0)", stopOpacity: 1 }}
+                style={{ stopColor: "rgba(76,175,80,0.05)", stopOpacity: 1 }}
               />
             </linearGradient>
             <linearGradient id="gradRight" x1="100%" y1="0%" x2="0%" y2="0%">
               <stop
                 offset="0%"
-                style={{ stopColor: "rgba(134,197,126,0.5)", stopOpacity: 1 }}
+                style={{ stopColor: "rgba(134,197,126,0.4)", stopOpacity: 1 }}
               />
               <stop
                 offset="100%"
+                style={{ stopColor: "rgba(134,197,126,0.05)", stopOpacity: 1 }}
+              />
+            </linearGradient>
+            <linearGradient id="gradCenter" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop
+                offset="0%"
                 style={{ stopColor: "rgba(255,255,255,0)", stopOpacity: 1 }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: "rgba(240,247,240,0.5)", stopOpacity: 1 }}
               />
             </linearGradient>
           </defs>
-          {/* Left Wave */}
+
+          {/* subtle center fill to avoid stark white */}
+          <rect width="100%" height="100%" fill="url(#gradCenter)" />
+
+          {/* Left Wave - Extended to Center */}
           <motion.path
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            d="M0,0 C200,300 150,600 400,900 L0,900 Z"
+            d="M0,0 C400,200 600,600 800,900 L0,900 Z"
             fill="url(#gradLeft)"
-            filter="blur(40px)"
+            filter="blur(30px)"
           />
-          {/* Right Wave */}
+
+          {/* Right Wave - Extended to Center */}
           <motion.path
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
-            d="M1440,0 C1200,200 1300,500 1000,900 L1440,900 Z"
+            d="M1440,0 C1100,200 900,600 600,900 L1440,900 Z"
             fill="url(#gradRight)"
+            filter="blur(30px)"
+          />
+
+          {/* Secondary Layer Left */}
+          <motion.path
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6 }}
+            transition={{ duration: 2, delay: 0.5 }}
+            d="M-100,200 C300,400 500,700 700,1000 L-100,1000 Z"
+            fill="rgba(46,125,50,0.08)"
             filter="blur(50px)"
           />
-          {/* Secondary Layer for depth */}
+
+          {/* Secondary Layer Right */}
           <motion.path
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.6 }}
             transition={{ duration: 2, delay: 0.5 }}
-            d="M-100,200 C100,500 50,700 300,1000 L-100,1000 Z"
-            fill="rgba(46,125,50,0.15)"
-            filter="blur(60px)"
-          />
-          <motion.path
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.6 }}
-            transition={{ duration: 2, delay: 0.5 }}
-            d="M1540,100 C1300,400 1400,600 1100,1000 L1540,1000 Z"
-            fill="rgba(46,125,50,0.1)"
-            filter="blur(60px)"
+            d="M1540,100 C1100,300 900,600 700,1000 L1540,1000 Z"
+            fill="rgba(46,125,50,0.08)"
+            filter="blur(50px)"
           />
         </svg>
       </div>

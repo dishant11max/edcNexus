@@ -1,0 +1,40 @@
+:root {
+  /* Colors */
+  --color-bg-start: #ffffff;
+  --color-bg-end: #f0f7f0;
+  --color-primary: #2e7d32;
+  --color-accent: #3cb850;
+  --color-text-dark: #0f1a0e;
+  --color-text-muted: #6b7f6a;
+  --color-valid: #4caf50;
+  --color-valid-bg: #e8f5e9;
+  --color-flagged: #e53935;
+  --color-flagged-bg: #ffebee;
+  --color-border: rgba(46, 125, 50, 0.14);
+
+  /* Typography */
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Bricolage Grotesque", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.8s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Enforce light mode per requirements */
+  :root {
+    color-scheme: light;
+  }
+}

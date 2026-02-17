@@ -1,0 +1,105 @@
+.navbarContainer {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0 var(--spacing-md);
+}
+
+.navbarContent {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.5rem 0.5rem 1.25rem; /* Less padding on right to account for button */
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xl);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  max-width: 900px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
+  border-radius: 8px; /* Square with rounded corners per prompt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wordmark {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  letter-spacing: -0.02em;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.link {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-text-dark);
+}
+
+.ctaSection {
+  display: flex;
+  align-items: center;
+}
+
+.getStartedBtn {
+  background-color: var(--color-text-dark);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.getStartedBtn:hover {
+  transform: translateY(-1px);
+  background-color: black;
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .navbarContent {
+    justify-content: space-between;
+    gap: 0;
+  }
+}
